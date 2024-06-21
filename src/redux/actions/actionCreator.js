@@ -1,16 +1,17 @@
-import { INCREASE_COUNT, DECREASE_COUNT, GET_LATEST_NEWS } from '../constants';
+import { SET_LATEST_NEWS, SET_POPULAR_NEWS, GET_NEWS } from '../constants';
 
 //action creator:
-export const increaseCount = () => ({
-  type: INCREASE_COUNT,
+export const getNews = () => ({
+  type: GET_NEWS,
 });
 
 //action creator:
-export const decreaseCount = () => ({
-  type: DECREASE_COUNT,
+export const setLatestNews = (payload) => ({
+  type: SET_LATEST_NEWS,
+  payload: payload,
 });
-
 //action creator:
-export const getLatestNews = () => ({
-  type: GET_LATEST_NEWS,
+export const setPopularNews = (payload) => ({
+  type: SET_POPULAR_NEWS,
+  payload: payload,
 });

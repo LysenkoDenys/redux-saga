@@ -5,6 +5,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(79, 79, 206);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 code {
@@ -15,8 +19,23 @@ code {
 button {
   padding: 5px 15px;
   margin: 10px;
-  width: 50px;
+  min-width: 50px;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 5px 5px 5px;
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
 }
+button:hover {
+  box-shadow: 3px 3px 3px;
+  background-color: gray;
+  color: white;
+}
+button:active {
+  box-shadow: 1px 1px 1px;
+}
+
 h1 {
   margin: 10px;
 }
