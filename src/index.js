@@ -1,16 +1,38 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
+import { Router } from 'react-router';
+import { Switch, Route } from 'react-router-dom';
+import { createBrowserHistory } from 'history';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import store from './redux/store';
+import Home from './pages/home/home';
+import LatestNews from './pages/latest-news/latest-news';
+import PopularNews from './pages/popular-news/popular-news';
+
+const history = createBrowserHistory();
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <Router history={history}>
+        <App>
+          <Switch>
+            <Route path="/" exact>
+              <Home />
+            </Route>
+            <Route path="/latest-news" exact>
+              <LatestNews />
+            </Route>
+            <Route path="/popular-news" exact>
+              <PopularNews />
+            </Route>
+          </Switch>
+        </App>
+      </Router>
     </Provider>
   </React.StrictMode>
 );
