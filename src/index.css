@@ -5,7 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: rgb(79, 79, 206);
+  background-color: rgb(8, 110, 20);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -37,5 +37,32 @@ button:active {
 }
 
 h1 {
+  margin: 10px;
+  text-align: center;
+  font-size: 48px;
+}
+
+.item {
+  background-color: gray;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 3px 3px 3px black;
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.items {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  list-style: none;
+  font-size: 12px;
+  color: rgb(40, 29, 195);
+}
+
+li {
   margin: 10px;
 }

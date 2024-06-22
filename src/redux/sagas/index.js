@@ -1,19 +1,50 @@
-import { takeEvery, put, call } from 'redux-saga/effects';
-import { GET_NEWS } from '../constants';
+import {
+  takeEvery,
+  put,
+  call,
+  fork,
+  all,
+  race,
+  spawn,
+} from 'redux-saga/effects';
+import {
+  GET_NEWS,
+  SET_LATEST_NEWS_ERROR,
+  SET_POPULAR_NEWS_ERROR,
+} from '../constants';
 import { getLatestNews, getPopularNews } from '../../api';
 import { setLatestNews, setPopularNews } from '../actions/actionCreator';
 
 export function* handleLatestNews() {
-  const { hits } = yield call(getLatestNews, 'react');
-  yield put(setLatestNews(hits));
+  try {
+    // throw new Error();
+    const { hits } = yield call(getLatestNews, 'react');
+    yield put(setLatestNews(hits));
+  } catch (error) {
+    // throw new Error('Error fetching latest news');
+    yield put({
+      type: SET_LATEST_NEWS_ERROR,
+      payload: 'shit happens in LATEST NEWS!',
+    });
+  }
 }
+
 export function* handlePopularNews() {
-  const { hits } = yield call(getPopularNews);
-  yield put(setPopularNews(hits));
+  try {
+    const { hits } = yield call(getPopularNews);
+    yield put(setPopularNews(hits));
+  } catch (error) {
+    yield put({
+      type: SET_POPULAR_NEWS_ERROR,
+      payload: 'shit happens in POPULAR NEWS!',
+    });
+  }
 }
+
 export function* handleNews() {
-  yield call(handleLatestNews);
-  yield call(handlePopularNews);
+  yield fork(handleLatestNews);
+  yield fork(handlePopularNews);
+  // yield race([call(handleLatestNews), yield call(handlePopularNews)]);
 }
 
 export function* watchClickSaga() {
