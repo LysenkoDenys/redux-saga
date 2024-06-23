@@ -1,9 +1,4 @@
-import { SET_LATEST_NEWS, SET_POPULAR_NEWS, GET_NEWS } from '../constants';
-
-//action creator:
-export const getNews = () => ({
-  type: GET_NEWS,
-});
+import { SET_LATEST_NEWS, SET_POPULAR_NEWS } from '../constants';
 
 //action creator:
 export const setLatestNews = (payload) => ({

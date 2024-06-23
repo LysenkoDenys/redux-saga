@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
-import { Router } from 'react-router';
-import { Switch, Route } from 'react-router-dom';
-import { createBrowserHistory } from 'history';
+// import { Router } from 'react-router';
+// import { Switch, Route } from 'react-router-dom';
+// import { createBrowserHistory } from 'history';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
@@ -12,27 +13,21 @@ import Home from './pages/home/home';
 import LatestNews from './pages/latest-news/latest-news';
 import PopularNews from './pages/popular-news/popular-news';
 
-const history = createBrowserHistory();
+// const history = createBrowserHistory();
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <Router history={history}>
+      <BrowserRouter>
         <App>
-          <Switch>
-            <Route path="/" exact>
-              <Home />
-            </Route>
-            <Route path="/latest-news" exact>
-              <LatestNews />
-            </Route>
-            <Route path="/popular-news" exact>
-              <PopularNews />
-            </Route>
-          </Switch>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/latest-news" element={<LatestNews />} />
+            <Route path="/popular-news" element={<PopularNews />} />
+          </Routes>
         </App>
-      </Router>
+      </BrowserRouter>
     </Provider>
   </React.StrictMode>
 );
