@@ -1,11 +1,11 @@
 # redux-saga news app
 
-### The app serves latest or popular news.
+### The app serves latest or popular news form: https://hn.algolia.com
 
 <p>This app allows you:</p>
 <ul>
-<li>⭐recieve latest news</li>
-<li>⭐recieve popular news</li>
+<li>⭐receive latest news</li>
+<li>⭐receive popular news</li>
 </ul>
 
 <p>Sample:</p>
