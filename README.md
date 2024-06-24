@@ -2,6 +2,8 @@
 
 ### The app serves latest or popular news form: https://hn.algolia.com
 
+<p>This app deployed here: https://hacker-news-2024.netlify.app/</p>
+
 <p>This app allows you:</p>
 <ul>
 <li>⭐receive latest news</li>
